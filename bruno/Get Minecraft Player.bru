@@ -1,0 +1,20 @@
+meta {
+  name: Get Minecraft Player
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://playerdb.co/api/player/minecraft/:player
+  body: none
+  auth: inherit
+}
+
+params:path {
+  player: ActuallyPanda
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

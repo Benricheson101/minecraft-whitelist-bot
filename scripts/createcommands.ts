@@ -51,6 +51,8 @@ const commands: RESTPutAPIApplicationCommandsJSONBody = [
   },
 ];
 
+console.log(JSON.stringify(commands, null, 2))
+
 const discordToken = process.env.DISCORD_TOKEN!;
 
 const discordID = Buffer.from(discordToken.split('.')[0], 'base64').toString(
