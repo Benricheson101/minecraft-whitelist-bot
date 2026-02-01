@@ -12,3 +12,10 @@ export const keyToDER = (key: string) =>
     ]),
     Buffer.from(key, 'hex'),
   ]);
+
+export const getMinecraftPlayer = async (
+  ignOrUUID: string
+): Promise<{ign: string; uuid: string}> =>
+  fetch(`https://playerdb.co/api/player/minecraft/${ignOrUUID}`)
+    .then(r => r.json())
+    .then((r: any) => ({uuid: r.data.player.id, ign: r.data.player.username}));

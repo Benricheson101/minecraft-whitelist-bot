@@ -65,6 +65,10 @@ export class ManagementServer {
       }
     };
 
+    this.#ws.onclose = ev => {
+      console.log('Management socket closed:', ev.code);
+    };
+
     // biome-ignore lint/correctness/noConstructorReturn: proxy is okay
     return new Proxy(this, {
       get: (target, prop: string | symbol, receiver) => {
