@@ -1,0 +1,28 @@
+meta {
+  name: Management API
+  type: ws
+  seq: 1
+}
+
+ws {
+  url: {{MANAGEMENT_SERVER}}
+  body: ws
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BEARER_TOKEN}}
+}
+
+body:ws {
+  name: message 1
+  type: json
+  content: '''
+    {
+      "jsonrpc": "2.0",
+      "method": "minecraft:allowlist/remove",
+      "params": [[{"name": "ActuallyPanda"}]],
+      "id": 0
+    }
+  '''
+}
